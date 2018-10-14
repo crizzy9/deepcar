@@ -20,8 +20,24 @@ class CarController:
 
     def move_cam():
 
+    def run_action(self, cmd):
+        requests.get()
+
     def check_connection():
     """
-    :return: True if connection ok, false if no connection
+    Check whether connection is working,
+    server will respond with 'ok'
+    :return: 
+        True if connection ok,
+        False if no connection
     :rtype: bool
     """
+    loc = 'connection_test'
+    url = BASE_URL + loc
+    try:
+        r=requests.get(url)
+        if r.text == 'OK':
+            return True
+    except e as Exception:
+        return False
+
